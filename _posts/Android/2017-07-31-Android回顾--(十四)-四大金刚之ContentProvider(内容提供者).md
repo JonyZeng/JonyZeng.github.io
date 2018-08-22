@@ -31,7 +31,6 @@ content://user_dictionary/words
 设置自定义权限分三步：  
 1. 向系统声明一个权限  
 ```
-<!--在系统中注册读内容提供者的权限-->
 <permission
     android:name="top.shixinzhang.permission.READ_CONTENT"    //指定权限的名称
     android:label="Permission for read content provider"
