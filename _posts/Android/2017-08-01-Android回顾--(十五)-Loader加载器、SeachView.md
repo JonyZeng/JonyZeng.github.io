@@ -49,14 +49,13 @@ LoaderManager loadManager = MainActivity.this.getLoaderManager();  //用来管�
             }
         });
 ```
-
-3. 获取一个SimpleCursorAdapter对象,在onCreate的时候
+3. 获取一个SimpleCursorAdapter对象,在onCreate的时候  
 ```
    //SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER:表示的是给当前的这个适配器设置一个观察者这个观察者允许那个数据的改变
         mSimpleCursorAdapter=new SimpleCursorAdapter(MainActivity.this,android.R.layout.simple_list_item_1,cursor,new String[]{"display_name"},new int[]{android.R.id.text1},SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         mListView.setAdapter(mSimpleCursorAdapter);
-```
-4. 自定义AsyncTaskLoader
+```  
+4. 自定义AsyncTaskLoader  
 ```
 /**
  * 自定义AsyncTaskLoader
