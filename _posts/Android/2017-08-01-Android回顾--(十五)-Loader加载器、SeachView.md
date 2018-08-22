@@ -112,7 +112,7 @@ class MyAsyncTaskLoader extends AsyncTaskLoader{
 2. 给EditText添加文本改变的事件监听
 mEditText.addTextChangedListener(TextWatcher watcher);
 括号内的参数是一个TextWatcher的接口
-3. 自定义一个类实现TextWatcher，并重写里面的方法
+3. 自定义一个类实现TextWatcher，并重写里面的方法  
 ```
    /**
      * 这个就是那个EditText的事件的监听以及处理

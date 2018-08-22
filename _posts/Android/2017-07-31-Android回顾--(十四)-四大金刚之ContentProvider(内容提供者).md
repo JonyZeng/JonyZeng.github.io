@@ -28,7 +28,7 @@ content://user_dictionary/words
 在通过 ContentResolver 进行数据请求时（比如 contentResolver.insert(uri, contentValues);）， 系统会检查指定 URI 的 authority 信息，然后将请求传递给注册监听这个 authority 的ContentProvider 。这个 ContentProvider 可以监听 URI 想要操作的内容，Android 中为我们提供了 UriMatcher 来解析 URI  
 #### 权限问题
 由于内容提供者要被不同应用访问，因此权限必不可少。我们可以给内容提供者设置 “读/写”权限。  
-设置自定义权限分三步：  
+设置自定义权限分三步:
 1. 向系统声明一个权限  
 ```
 <permission
