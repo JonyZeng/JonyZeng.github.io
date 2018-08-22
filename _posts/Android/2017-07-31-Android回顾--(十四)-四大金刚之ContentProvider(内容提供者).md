@@ -59,7 +59,7 @@ signatureOrSystem：有两种应用可以申请该权限
     android:readPermission="top.shixinzhang.permission.READ_CONTENT">
 ```  
 这个权限无法在运行时请求，必须在清单文件中使用 <uses-permission> 元素和内容提供者定义的准确权限名称指明你的权限。  
-    
+
 3. 在想要使用上述组件的应用中注册这个权限  
 
 ```
