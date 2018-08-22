@@ -4,6 +4,7 @@
 这里有的人就会提出疑问了，Android中其他的控件也能在页面显示一部分的内容，为什么还要引入Fragment？
 - 首先因为Fragment自身拥有生命周期，那么我们就阔以在Fragment的实例中来完成这一部分内容的显示于隐藏，这样这部分的操作逻辑就和Activity分离了，降低了程序之间的耦合性
 - Fragment的出现实际上是为了解决平板电脑屏幕过宽，实现分屏效果。
+
 #### 使用方式
 #### 静态的使用方式
 像控件一样，在XML文件里面声明控件 然后控件就显示出来了
@@ -35,6 +36,7 @@ Fragment中的控件的事件的处理：
 - 可以在onCreateView方法里面通过view.findViewById来找到这个控件
 - 可以在Fragment里面通过获取上下文在，然后找到id getActivity().findViewById();
 - 需要碎片的布局文件中咱们直接声明一个Fragment，然后加id就可以了
+
 #### Fragment生命周期
 ![官方生命周期图.png](https://upload-images.jianshu.io/upload_images/7156039-6473edcddb5dce9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ```
@@ -73,6 +75,7 @@ ft.add(R.id.fragment1,fg1);//使用replace()也是一样的
 ft.commit();//提交
 ```
 注意：replace()实际是先清除容器里面的Fragment，调用remove方法，然后再执行添加当前的Fragment，add()方法。如果我们每一次都用replace()的话，那么会造成一个问题，就是每一次都会先将前一个先删除，后面一个才能添加上。  造成每一个都需要重新CreatView()那么这么做的话，如果连续不断的去切换的话就会造成卡顿现象，为了解决这个问题就引出了一个概念就是Fragment的优化
+
 #### Fragment的优化使用：
 ```
 pirvate void addContent(Fragment from,Fragment to){
@@ -108,6 +111,7 @@ ft.commit();
 - Fragment是依赖于、寄生于Activity的，所以在宿主Activity中也能找到Fragment的控件
 - 在Fragment里面是不包含宿主(activity)的上下文，所以我们如果想要在Fragment里面获取上下文的话，需要使用getActivity();
 - Fragment中的事件处理一般在onActivityCreated方法中进行。
+
 ### Fragment对象的使用
 1. 第一种：在宿主Activity中直接new对象，作为全部变量
 2. 第二种：写一个FragmentFactory帮助类，返回所有碎片的对象，在需要使用fragment的地方通过对应的下标获取相应对象
@@ -134,6 +138,7 @@ ft.commit();
             fragmentTransaction.commit();
 
 ```
+
 ### 回退栈：
 栈的存储模式：先进后出
 Activity也有自己的回退栈
@@ -169,6 +174,7 @@ ft.removeOnBackStackChangedListener();//删除栈里面的监听事件
 4. 让需要接收数据的地方实现定义的接口
 5. 在Fragment的onActivityCreate方法里面获取当前接口的对象getActivity();
 6. 在我们需要回调的地方进行回调。
+
 #### Fragment向点击之后跳转的Fragment传递数据
 ```
       if (fragment != null && fragmentManager != null) {
