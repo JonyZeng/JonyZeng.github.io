@@ -1,6 +1,6 @@
 ### Activity的四大金刚（组件）：
 &emsp;&emsp; Activity、Service、Broadcast-Receiver、Content-Provider
-***
+*** 
 前面我们提到了控件的概念，今天就来解开关于Android中的四大组件的面纱。
 ### 四大组件都是用来干嘛的？
 1、Activity：主要是用来完成页面的显示以及页面的业务逻辑的处理  
@@ -74,7 +74,7 @@ intent.setAction("xiaobobo");       //给当前的Activity设置一个Action  �
 &emsp;&emsp; b、重写onActivityResult()方法 来接收死亡的Activity传回来的数据  
 &emsp;&emsp; c、在需要传回数据的地方，使用intent来对数据进行封装 然后再使用setResult(intent)来将数据回传回来。  
 &emsp;&emsp; d、在onActivityResult里面解析数据  
-***
+*** 
 注意：四大组件使用必须要在AndroidManifest.xml文件中进行声明。四大组件都是属于应用，所以我们需要在Application的内部进行声明。而所有的权限是正对应整个工程的，所以需要在Application之外来进行声明。
 为啥要声明？ 告诉Android系统这个应用软件里面包含了哪些组件。
 #### 声明Activity的格式
