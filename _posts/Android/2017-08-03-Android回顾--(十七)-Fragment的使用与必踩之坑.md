@@ -35,7 +35,7 @@ Fragment中的控件的事件的处理：
 - 可以在宿主Activity里面直接通过findviewById来找到这个控件。
 - 可以在onCreateView方法里面通过view.findViewById来找到这个控件
 - 可以在Fragment里面通过获取上下文在，然后找到id getActivity().findViewById();
-- 需要碎片的布局文件中咱们直接声明一个Fragment，然后加id就可以了
+- 需要碎片的布局文件中咱们直接声明一个Fragment，然后加id就可以了  
 
 #### Fragment生命周期
 ![官方生命周期图.png](https://upload-images.jianshu.io/upload_images/7156039-6473edcddb5dce9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
