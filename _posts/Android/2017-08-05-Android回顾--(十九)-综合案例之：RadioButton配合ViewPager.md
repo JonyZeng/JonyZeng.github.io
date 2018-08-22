@@ -54,7 +54,8 @@
         mTextView.setText(content);
     }
 ```  
-4. 设置默认显示的Fragment和默认选中的radioButton
+4. 设置默认显示的Fragment和默认选中的radioButton  
+
 ```
  mViewPager.setCurrentItem(1);
  mRadiBtnInfor.setChecked(true);
