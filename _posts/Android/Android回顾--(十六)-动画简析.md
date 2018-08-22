@@ -1,0 +1,198 @@
+### 动画：
+1. 补间动画(Tween动画)
+2. 帧动画(Frame动画)
+3. 属性动画(Property动画)
+#### 补间动画 
+特点：
+1. 只是实现了简单的渐变、平移、拉伸、缩放。
+2. Tween动画实现完成之后，该动画是会恢复原状的，图片本身的属性没有发生任何的改变，动画的形成是通过他爹动态的改变了他的绘图的位置或者渐变度从而改变图片本身在短时间内的属性。
+3. 简单点说就是这种动画的形成是依赖于他爹的，他爹来动态的改变他本身绘图的位置来形成这个动画，他本身的属性是没有变化的，这也是为什么动画结束之后，就被打回原形。
+
+在Tween动画中所有动画的爹都是Animation。
+- 渐变动画(AlphaAnimation)
+拿到渐变动画的对象
+```
+   Animation mAnimation=new AlphaAnimation(0,1);  //第一个参数表示的是开始的透明度 第二个参数表示的是结束的透明度，透明度的范围是:0-1   0表示的是完全透明   1：表示的的是完全不透明
+```
+动画中的方法
+```
+mAnimation.setDuration(3000);    //设置动画持续的时间
+mAnimation.setRepeatCount(5);    //表示的是的是动画重复的次数
+mAnimation.setRepeatMode(Animation.RESTART);  //表示的是动画重复的模式:1. Animation.RESTART:表示从新打开动画   2. Animation.REVERSE:表示的是反转下一次打开动画时间以上一次结束的为准
+```
+动画的监听事件(Tween动画的监听事件都是如此)
+```
+     mAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                // 表示动画开始的时候回调函数
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                // 表示的是动画结束的的时候的回调函数
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+                // 表示的是动画重复的时候的回调函数
+            }
+        });
+```
+- 缩放动画(ScaleAnimation)
+获取缩放动画对象的方式有三种
+```
+// 1.  
+Animation mAnimation=new ScaleAnimation(0,1f,0,1f)  //第一个里面的四个参数:x轴的缩放的开始位置  x轴上的结束位置  y轴上的开始位置  y轴上的结束位置  注意：这里的值都是要乘以原来的宽高之后的值
+// 2. 
+Animation mAnimation=new ScaleAnimation(0,1,0,1,300,0);     //后面的两个参数表示的是缩放点的位置    单位呢是像素
+// 3. 
+Animation mAnimation=new ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);  //后面的四分参数表示的意思都是确定那个缩放点的位置，后面四个参数的第一个参数：
+```
+- 平移动画(TranslateAnimation)
+```
+Animation mAnimation=new TranslateAnimation(0,100,0,100);   
+          相对点的确定:
+                    Animation.RELATIVE_TO_SELF:这个表示的是相对于自己
+                    Animation.ABSOLUTE:相对于绝对点(很少用)
+                    Animation.RELATIVE_TO_PARENT:表示的是相对于他爹
+           后面的值的确定:
+                    是以当前的宽和高乘以那个倍数然后确定出坐标点的值
+```
+-    旋转动画
+```
+ //默认的旋转点就是以左上角为旋转点
+Animation mAnimation=new RotateAnimation(0,45); //旋转是从0到45度
+//下面的后面两个参数的单位表示的是像素   确定的是那个旋转点的位置
+Animation mAnimation=new RotateAnimation(0,45,1000,1000);
+//后面的四个值都是为了确定那个旋转点的位置的  后面的值是按照宽和高的倍数来确定的那个坐标点的位置的
+Animation mAnimation=new RotateAnimation(0,360,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+```
+#### 怎么定义一个动画集
+```
+//第一步：首先获取一个AnimationSet的对象
+        AnimationSet mAnimationSet=new AnimationSet(true);
+//第二步：然后再定义一系列的动画（一种或者多种）
+        Animation mAlphiAnima=new AlphaAnimation(0,1);
+        Animation mScaleAnima=new ScaleAnimation(0,1,0,1, android.view.animation.Animation.RELATIVE_TO_SELF,0.5f, android.view.animation.Animation.RELATIVE_TO_SELF,0.5f);
+        Animation mRotationAnima=new RotateAnimation(0,360, android.view.animation.Animation.RELATIVE_TO_SELF,0.5f, android.view.animation.Animation.RELATIVE_TO_SELF,0.5f);
+        Animation mAnimation=new TranslateAnimation(0,100,0,100);
+//第三步：将定义的动画全部装进动画集中
+        mAnimationSet.addAnimation(mAlphiAnima);
+        mAnimationSet.addAnimation(mScaleAnima);
+        mAnimationSet.addAnimation(mRotationAnima);
+        mAnimationSet.addAnimation(mAnimation);
+//第四步：设置动画持续的时间和循环的次数以及循环的模式
+        mAnimationSet.setDuration(5000);
+//第五步：直接使用View对象的startAnimation对象来打开这个动画
+        mImageView.startAnimation(mAnimationSet);
+```
+#### 通过配置文件来实现这个动画
+通过配置文件实现的方式，就不贴代码了。按照步骤一步一步的做就OK了
+1. 在res的目录下面建立一个anim的文件夹
+2. 在xml文件中配置相应的动画的属性
+3. 在需要使用的地方使用AnimationUtils这个类的LoadAnimation()方法来加载动画
+4. 使用返回来的动画对象设置动画相应的属性
+5. 运行这个动画
+### 帧动画(Frame Animation)
+帧动画是根据事先准备好的一系列的图片完成顺序浏览的方式
+配置文件创建帧动画步骤如下图：
+![新建帧动画.png](https://upload-images.jianshu.io/upload_images/7156039-e63bb69ed65a2c2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+在文件里面开始配置动画属性
+```
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="true" >  //是否执行一次  true:一次  false:无数次   默认就是无数次
+      <item android:drawable="@drawable/tb1" android:duration="150"></item>   //一个就是切换的图片   另外一个表示的是切换的时间间隔
+      <item android:drawable="@drawable/tb2" android:duration="150"></item>
+      <item android:drawable="@drawable/tb3" android:duration="150"></item>
+      <item android:drawable="@drawable/tb4" android:duration="150"></item>
+      <item android:drawable="@drawable/tb5" android:duration="150"></item>
+      <item android:drawable="@drawable/tb6" android:duration="150"></item>
+</animation-list> 
+```
+Java代码中创建帧动画
+```
+// 第一步：给需要帧动画的控件设置setBacgroundResource(R.drawable.帧动画名称)
+mImageView.setBackgroundResource(R.drawable.frame_01);
+//第二步： 通过当前对象.getBackground()获取这个背景，强制类型转换成AnimationDarwable对象
+AnimationDarwable mAnimationDarwable=(AnimationDarwable)mImageView.getBackground();
+//第三部：打开帧动画
+mAnimationDarwable.start();
+```
+### 属性动画(PropertyAnimation)
+&emsp;&emsp;通过给定的时间间隔完成属性的改变的动画。属性动画改变的是属性，默认情况下是匀速的改变当前对象的属性的。
+原理：每次开始执行的时候都会首先通过调用当前对象的get属性名的方法获取当前的值，然后在调用set方法来不断改变这个值给定了一个时间通过计算出每一个时间单位需要移动的距离然后开始移动
+#### 属性动画的使用：
+```
+ /**
+     * 多个动画同时执行
+     */
+    private void manyAnima() {
+        AnimatorSet mAnimatorSet=new AnimatorSet();
+        ObjectAnimator translateX = ObjectAnimator.ofFloat(mImageView, "translationX", 0,200);
+        translateX.setDuration(3000);
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(mImageView, "rotation", 0, 360);
+        rotation.setDuration(3000);
+        ObjectAnimator scaleX1 = ObjectAnimator.ofFloat(mImageView, "scaleY", 1, 0.5f);
+        scaleX1.setDuration(3000);
+//        List<Animator> lists=new ArrayList<>();
+//        lists.add(translateX);
+//        lists.add(rotation);
+//        lists.add(scaleX1);
+//        mAnimatorSet.playSequentially(lists);
+        mAnimatorSet.playSequentially(translateX);//这里我们是在设置他是怎么执行的，是一个个的执行
+        mAnimatorSet.playSequentially(rotation);
+        mAnimatorSet.playSequentially(scaleX1);
+        mAnimatorSet.start();
+    }
+
+    /**
+     * 平移动画
+     */
+    private void translate() {
+        ObjectAnimator translateX = ObjectAnimator.ofFloat(mImageView, "translationX", 0,200);
+        ObjectAnimator translateY = ObjectAnimator.ofFloat(mImageView, "translationY", 0,200);
+        translateX.setDuration(3000);
+        translateY.setDuration(3000);
+        translateX.start();
+        translateY.start();
+    }
+
+    /**
+     * 旋转动画
+     */
+    private void rotation() {
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(mImageView, "rotation", 0, 360);
+        rotation.setDuration(3000);
+        rotation.setRepeatCount(3);
+        rotation.setRepeatMode(Animation.REVERSE);
+        rotation.start();
+
+    }
+
+    /**
+     * 缩放的这个动画
+     */
+    private void scale() {
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(mImageView, "scaleX", 1, 0.5f);
+        ObjectAnimator scaleX1 = ObjectAnimator.ofFloat(mImageView, "scaleY", 1, 0.5f);
+        scaleX.setDuration(3000);
+        scaleX1.setDuration(3000);
+        scaleX.start();
+        scaleX1.start();
+    }
+
+    /**
+     * 属性动画中的渐变动画
+     */
+    private void alphi() {
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(mImageView, "alpha", 1, 0.8f, 0.2f,0.8f,1);
+        alpha.setDuration(6000);
+        alpha.setRepeatCount(2);
+        alpha.setRepeatMode(Animation.REVERSE);
+        alpha.start();
+    }
+
+```
+
+
+

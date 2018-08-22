@@ -1,0 +1,59 @@
+### EditText：文本输入框
+```
+android:text="这里是文本输入框"   //显示的文本内容
+android:singleLine="true"   //设置单行显示的属性
+android:hint="请输入用户名"     //设置提示用户输入的信息
+android:textColor="#f07"    //设置文本显示的颜色
+android:maxHeight="100px"     // 最大的高度
+android:maxLength="10"     // 可输入的最大字符数
+android:lines="1"     //设置显示的行数
+android:password="true"      // 设置为输入密码的属性
+android:enable="fasle"       // 是否可以使用。
+android:phoneNumber="true"     // 设置为数字键输入属性
+android:inputType="phone"     //控制我们获取焦点时弹出的键盘
+android:imeOptions="actionGo"  //控制输入键盘上回车键的值和行为，有这些属性：actionDone:表示的是完成    actionGo:回车的意思    actionSearch:把键改成搜搜键     actionNext：下一步 normal:弹出的是一个正常的键盘
+```
+### ImageView：显示图片的控件
+```
+android:scaleType="matrix"     // 默认的，不改变原图大小，从ImageView的左上角开始绘制原图，原图超过ImageView的部分进行裁剪处理。
+"center"    //保持原图的大小，显示在ImageView的中心。当原图的size大于ImageView的size,原图超过ImageView的部分裁剪掉
+"centerGrop"    //以填满整个ImageView为目的，将原图的中心对准ImageView的中心，等比例放大原图，直到填满ImageView为止(ImageView的宽和高都需要填满)。原图超过ImageView的部分都需要裁掉。
+"centerInside"     //以原图完全显示为目的，将图片的内容完整居住显示，通过按比例缩小原图的size等于或小于ImageView的宽高。如果原图的size本身就小于ImageView的size，则原图的size不做任何处理，居中显示在ImageView。
+"fitCenter"     //把原图按比例缩放到imagev的高度，居中显示
+"firEnd"       // 把原图按比例缩放到ImageView的高度，显示在ImageView的下部分位置
+"fitStart"     // 把原图按比例缩放到ImageView的高度，显示在ImageView的开始（上部分）位置
+"fitXY"     // 把原图按照指定的大小在View中显示，拉伸显示图片，不保持原比例，填满ImageView
+```
+***
+### CheckBox：复选框
+```
+android:checked="trur"      // 默认是选中的状态
+点击事件的处理
+1. onCheckedChangeListener()
+2.onCheckedChanged(CompoundButton button, boolean isChecked)   //第一个参数表示当前触发的控件。第二个参数表示控件当前的状态，是否被选中。
+```
+***
+### 确定性的进度条SeekBar
+&emsp;1、通过id找到SeekBar控件
+&emsp;2、设置seekBar的最大值
+&emsp;3、设置一个当前的值
+&emsp;4、注册一个监听器setOnSeekBarChangeListener里面的三个方法：
+&emsp;&emsp; a. onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
+&emsp;&emsp;&emsp; seekbar:触发的控件
+&emsp;&emsp;&emsp; progress:改变后的进度
+&emsp;&emsp;&emsp; fromUser:判断当前的改变是否来源于用户 true:用户 false:程序
+&emsp;&emsp; b. onStartTrackingTouch(SeekBar seekBar): 开始触控的时候触发的函数
+&emsp;&emsp; c. onStopTrackingTouch(SeekBar seekBar): 结束触控的时候的触发函数
+SeekBar里面的方法：
+&emsp;setMax(int posotion):设置进度条的最大值
+&emsp;setProgress(int position): 设置当前进度条的位置
+### RadioButton 单选框
+RadioButton的事件处理
+&emsp;&emsp; onCheckedChanged(CompoundButton button，boolean isChecked)    //第一个参数，表示的是当前点击的控件是谁。 第二个参数表示的是当前点击的状态
+RadioButton取消图标的属性：button:@null
+RadioButton设置按钮图片的属性：drawableTop
+RadioButton设置排列的方向：oritation
+RadioButton设置内容居中的属性:gravity
+### RadioGroup 单选框的容器
+RadioGroup的监听事件 onChangedChangeListener
+RadioGroup的监听事件方法 onChangedChanged(RadioGroup group , int checkedId) //第一个参数：表示的是当前的容器 第二个参数：表示的是哪个孩子的id被选中。

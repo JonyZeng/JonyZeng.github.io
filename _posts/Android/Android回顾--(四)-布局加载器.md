@@ -1,0 +1,116 @@
+### 布局加载器
+#### 1、什么是布局加载器？
+布局加载器就是用来记载布局的类，作用就是将我们的布局文件转换成能够肉眼看懂的视图View。
+#### 2、布局加载器器该怎么是使用
+```
+//首先：获取当前的布局加载器的对象
+//第一种：面向对象的写法
+LayoutInfalter inflater = getLayoutInflater();
+//第二种：通过获取系统的服务来获取布局加载器的对象
+LayoutInfalter inflater2=(LayoutInfalter)getSystemService(LAYOUT_INFLATER_SERVICE);
+//第三种：通过某一个上下文的对象来获取布局加载器的对象
+LayoutInflater inflater3 = LayoutInflater.from(getApplicationContext());
+//其次：通过布局加载器的inflate()方法来加载当前的布局文件
+View view =inflater.inflate(R.layout.inflate_layout,null);
+//最后，根据布局加载器获取到的视图View进行一些视图操作
+```
+### Spinner(下拉列表)的使用
+&emsp; 方法一、在String.xml中声明列表中的数组
+```
+<string-array name="strArr">
+        <item>中国</item>
+        <item>小日本</item>
+        <item>美国佬</item>
+        <item>欧洲佬</item>
+        <item>印度阿三</item>
+    </string-array>
+```
+在Spinner列表的控件中使用android:entries来引用刚刚设置好的数据源进行适配,对应的布局文件如下
+```
+  <Spinner
+                 android:id="@+id/editRegion"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:entries="@+array/region"/>
+```
+&emsp; 方法二、在JAVA的代码中通过适配器来设置数据
+第二种方法相对于第一种方法不易维护，所以一般都使用的第一种。
+
+获取下俩列表选中的值：spinner.getSelecteditem().toSttring();
+设置选中值
+```
+ SpinnerAdapter apsAdapter= spinner.getAdapter();
+       int k= apsAdapter.getCount();
+       for(int i=0;i<k;i++){
+           if("hhh".equals(apsAdapter.getItem(i).toString())){
+            spinner.setSelection(i,true);
+               break;
+           }
+       }
+```
+### 适配器
+#### 1、什么是适配器
+&emsp;适配器简单点说就是连接布局模板和数据源以及目标控件的桥梁，通过适配器可以将数据适配显示带目标控件上。其优点就是可以一次添加多条数据到目标控件
+#### 2、ArrayAdapter
+&emsp;ArrayAdapter的几种获取对象的方法。
+&emsp;&emsp; a、 ArrayAdapter adapter=new ArrayAdapter<T>(context,textViewResourceId); 
+&emsp;&emsp; &emsp;&emsp; 第一个参数是；上下文
+&emsp;&emsp; &emsp;&emsp; 第二个参数是：模板id  
+注意：这个模板的根目录只能是 TextView  可以给定id也可以不给定id这种方式下需要通过adapter.add()或者  adapter.addAll()来添加数据
+&emsp;&emsp; b、  ArrayAdapter adapter=new ArrayAdapter(context, resource, textViewResourceId);
+&emsp;&emsp; &emsp;&emsp; 重点是resource：这里的这个是模板的id   
+注意：这里的TextView可以是布局文件下面的这种方法来添加数据的话那么也需要add()或者addAll()来添加数据源
+&emsp;&emsp; c、 ArrayAdapter adapter= ArrayAdapter(context, textViewResourceId, objects)
+&emsp;&emsp; &emsp;&emsp;第二个参数和上面的第一个构造函数一样  
+注意：这个的模板的根也只能是TextView  第三个参数表示的是数据源————>集合或者数组
+ &emsp;&emsp; c、 ArrayAdapter adapter=new ArrayAdapter<T>(context,resource, textViewResourceId, objects)
+&emsp;&emsp; &emsp;&emsp;第一个参数：上下文
+&emsp;&emsp; &emsp;&emsp;第二个参数：模板的id  R.layout.
+&emsp;&emsp; &emsp;&emsp;第三个参数：控件id
+&emsp;&emsp; &emsp;&emsp;第四个参数：数据源
+适配器中关于视图View比较特殊的方法：
+adapter.clear():清除适配器中所有的View
+adapter.notifyDataSetChanged();刷新适配器
+3、SimpleAdapter的用法
+```
+SimpleAdapter adapter = new SimpleAdapter(SpinnerActivity.this,lists,R.layout.spinner_item3,new String[]{"name","password"},new int[]{R.id.mTextView,R.id.mTextView1});
+                context:上下文
+                data:数据源
+                resource:模板id  R.layout.
+                from:这个数组就是那个数据源中对应的key
+                to:模板中的控件id的数组
+```
+适配器的某一个条目的点击事件
+mSpinner.setOnItemLongClickListener 长按事件
+mSpinner.setOnItemSelectedLisntener 点击某一个条目的点击事件
+```
+public boolean onItemLongClick(AdapterView<?> parent, View view,int position, long id)
+   parent:他爹
+   view: 点击的View
+   position:点击的View的位置
+   id: 点击的view的id
+
+mSpinner.setOnItemSelectedListener(new OnItemSelectedListener(){
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+      
+    }
+    @Override
+public void onNothingSelected(AdapterView<?> parent){
+    
+}
+});
+```
+###AutoCompleteTextView(完成自动匹配)
+使用方式：
+1、在布局文件通过id找到控件
+2、使用适配器来适配数据源的词库
+3、设置适配器
+4、设置能够从第一个位置开始匹配
+```
+mAutoCompleteTextView.setThreshold(1);// 在setAdapter()的前后都可以实现
+```
+### ScrollView：滑动视图的视图的使用
+ &emsp;&emsp;当我们的内容以及填满当前屏幕而且内容还没有显示完全的情况下，使用滑动视图。
+
+
