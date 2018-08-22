@@ -1,6 +1,6 @@
-##Android是什么？
+### Android是什么？
     Android是一个基于Linux为内核的手机系统
-##Android体系架构
+### Android体系架构
 ![五层架构体系.png](https://upload-images.jianshu.io/upload_images/7156039-7a55891ed7406b17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 1. System Apps:  
 Android系统用户进行交互的应用层，我们开发一般是基于下一层framework进行开发交互的。
