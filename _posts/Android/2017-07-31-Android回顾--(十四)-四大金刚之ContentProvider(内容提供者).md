@@ -30,6 +30,7 @@ content://user_dictionary/words
 由于内容提供者要被不同应用访问，因此权限必不可少。我们可以给内容提供者设置 “读/写”权限。  
 设置自定义权限分三步:
 1. 向系统声明一个权限  
+
 ```
 <permission
     android:name="top.shixinzhang.permission.READ_CONTENT"    //指定权限的名称
@@ -45,7 +46,9 @@ signatureOrSystem：有两种应用可以申请该权限
 和定义了这个权限的 apk 用相同的私钥签名的应用  
 在 /system/app 目录下的应用  
 这里我们设置的值为 normal。  
+
 2. 给要设置权限的组件设置需要这个权限  
+
 ```
 <provider
     android:name=".provider.IPCPersonProvider"
@@ -56,7 +59,9 @@ signatureOrSystem：有两种应用可以申请该权限
     android:readPermission="top.shixinzhang.permission.READ_CONTENT">
 ```  
 这个权限无法在运行时请求，必须在清单文件中使用 <uses-permission> 元素和内容提供者定义的准确权限名称指明你的权限。  
+    
 3. 在想要使用上述组件的应用中注册这个权限  
+
 ```
 <uses-permission android:name="top.shixinzhang.permission.READ_CONTENT"/>
 ```
