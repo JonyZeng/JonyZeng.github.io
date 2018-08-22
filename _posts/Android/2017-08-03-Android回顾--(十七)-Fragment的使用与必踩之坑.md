@@ -28,7 +28,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
 </LinearLayout>
-```
+```  
+
 - 第三步：重写Fragment里面重写onCreatView()方法，通过inflater来加载布局文件  第一个参数是布局id 第二个参数是container（可以为空）第三个是false
    返回值是view 我们可以通过view来找到Fragment布局文件里面的控件
 
