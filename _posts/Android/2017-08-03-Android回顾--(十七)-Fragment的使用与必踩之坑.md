@@ -133,8 +133,10 @@ ft.commit();
             return fragmentList.get(position);
         }
     }
-```
+```  
+
 使用工厂类  
+
 
 ```
             FragmentManager fragmentManager = getFragmentManager();
@@ -178,7 +180,7 @@ ft.removeOnBackStackChangedListener();//删除栈里面的监听事件
 3. 将接口对象置空
 4. 让需要接收数据的地方实现定义的接口
 5. 在Fragment的onActivityCreate方法里面获取当前接口的对象getActivity();
-6. 在我们需要回调的地方进行回调。
+6. 在我们需要回调的地方进行回调。  
 
 #### Fragment向点击之后跳转的Fragment传递数据
 ```
