@@ -1,7 +1,7 @@
 上一篇给大家简单回顾了一下ViewPage和Fragment的使用，这里用一个综合的案例来给大家讲解一下目前常用的模式。
 
 ### 案例一：RadioGroupAndViewPager
-1.首先在MainActivity.java的onCrate方法中找到对应的控件，同时初始化值  
+1. 首先在MainActivity.java的onCrate方法中找到对应的控件，同时初始化值  
 ```
     List<Fragment> fragments = new ArrayList<>();   //fragment的初始化
     RadioGroup mRadioGroup;
