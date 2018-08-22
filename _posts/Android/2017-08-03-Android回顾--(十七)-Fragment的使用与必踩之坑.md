@@ -117,7 +117,8 @@ ft.commit();
 
 ### Fragment对象的使用
 1. 第一种：在宿主Activity中直接new对象，作为全部变量
-2. 第二种：写一个FragmentFactory帮助类，返回所有碎片的对象，在需要使用fragment的地方通过对应的下标获取相应对象
+2. 第二种：写一个FragmentFactory帮助类，返回所有碎片的对象，在需要使用fragment的地方通过对应的下标获取相应对象  
+
 ```
   public static class FragmentFactory{
         static List<Fragment> fragmentList = new ArrayList<>();
@@ -133,14 +134,15 @@ ft.commit();
         }
     }
 ```
-使用工厂类
+使用工厂类  
+
 ```
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.contentPanel,FragmentFactory.getFragment(0));
             fragmentTransaction.commit();
 
-```
+```  
 
 ### 回退栈：
 栈的存储模式：先进后出
