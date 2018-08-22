@@ -54,7 +54,8 @@ Fragment中的控件的事件的处理：
   onActivityCreated()：处理事务，用来完成处理逻辑，Activity创建完成调用
   onCreateView()：绑定Fragment，创建Fragment的显示，绑定view到Fragment
 
-```
+```  
+
 ### 动过容器动态加载替换Fragment的使用方式
 - 第一步：通过上下文获得Fragment的管理者对象
 ```
