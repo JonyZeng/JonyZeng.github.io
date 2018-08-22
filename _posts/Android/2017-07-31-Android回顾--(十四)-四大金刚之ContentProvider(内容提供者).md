@@ -36,7 +36,7 @@ content://user_dictionary/words
     android:label="Permission for read content provider"
     android:protectionLevel="normal"    
     />
-```
+```  
 其中 android:protectionLevel可选的值主要如下：  
 normal：低风险，任何应用都可以申请，在安装应用时，不会直接提示给用户  
 dangerous：高风险，系统可能要求用户输入相关信息才授予权限，任何应用都可以申请，在安装应用时，会直接提示给用户  
@@ -54,7 +54,7 @@ signatureOrSystem：有两种应用可以申请该权限
     android:grantUriPermissions="true"
     android:process=":provider"
     android:readPermission="top.shixinzhang.permission.READ_CONTENT">
-```
+```  
 这个权限无法在运行时请求，必须在清单文件中使用 <uses-permission> 元素和内容提供者定义的准确权限名称指明你的权限。  
 3. 在想要使用上述组件的应用中注册这个权限  
 ```
