@@ -1,11 +1,12 @@
 ### SqlLiter：
-&emsp;&emsp;小型数据库，占用资源少，操作简单。
+&emsp;&emsp;小型数据库，占用资源少，操作简单。  
 使用方法：
 #### 第一种使用方式：  
 1. 通过上下文的openOrCreateDatabase("jony.db",Context.MODE_PRIVATE,null);方法来创建和打开数据库  
 2. 通过返回的SqliteDataBase对象进行对数据库的CRUD  
 3. 每一次用完之后，都必须关闭数据库。  
 具体的使用方式，参照我封装的一个数据库帮助类  
+
 
 ```
 package com.example.jonyz.demoe;
