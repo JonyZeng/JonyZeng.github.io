@@ -1,7 +1,7 @@
 上一篇给大家简单回顾了一下ViewPage和Fragment的使用，这里用一个综合的案例来给大家讲解一下目前常用的模式。
 
 ### 案例一：RadioGroupAndViewPager
-1.首先在MainActivity.java的onCrate方法中找到对应的控件，同时初始化值
+1.首先在MainActivity.java的onCrate方法中找到对应的控件，同时初始化值  
 ```
     List<Fragment> fragments = new ArrayList<>();   //fragment的初始化
     RadioGroup mRadioGroup;
@@ -30,8 +30,9 @@
         mRadioGroup.addView(mRadiBtnContacts);
         mRadioGroup.addView(mRadiBtnDynamic);
     }
-```
-2. 进行数据的初始化，案例业务需求比较简单，重复使用Fragment
+```  
+
+2. 进行数据的初始化，案例业务需求比较简单，重复使用Fragment  
 ```
  private void initData() {
         for (int i = 0; i < 4; i++) {   //Fragment内容单一，可以复用才这样写。一般业务中，不会有这么单一的业务需求，所以需要创建多个Fragment
@@ -52,8 +53,8 @@
         content = getArguments().getString("content");
         mTextView.setText(content);
     }
-```
-4.设置默认显示的Fragment和默认选中的radioButton
+```  
+4. 设置默认显示的Fragment和默认选中的radioButton
 ```
  mViewPager.setCurrentItem(1);
  mRadiBtnInfor.setChecked(true);
@@ -102,6 +103,7 @@
         }
     }
 ```
+
 ### 案例二：FragmentAndTabHost
 1. 布局文件如下：
 ```
@@ -153,8 +155,9 @@
             mFragmentTabHost.addTab(tabSpec,ContentFragment.class,bundle);
         }
 ```
+
 ### 案例三：TabLayoutAndViewPagerAndFragment
-1.首先需要在gradle里面填加design包，才能使用TabLayout。
+1. 首先需要在gradle里面填加design包，才能使用TabLayout。
 ```
     //导入design包
     implementation 'com.android.support:design:27.1.0'
@@ -206,6 +209,7 @@
         }
 ```
 好了，关于ViewPager和Fragment一些联动的两个案例就讲到这里了，可能讲得不是很仔细，我会将案例的代码上传到GitHub上面，有兴趣的同学可以去看看哦。欢迎点赞和提出不足之处。
+
 ### 项目地址：https://github.com/JonyZeng/ViewPageFgDemo
 
 
