@@ -4,6 +4,7 @@
 Loader：
 - AsyncTaskLoader(主要用于加载耗时的操作)
 - CursorLoader(主要用作加载系统内部的数据)
+
 ### Loader的用法：
 1. 通过上下文获取LoaderManger对象
 ```
@@ -48,6 +49,7 @@ LoaderManager loadManager = MainActivity.this.getLoaderManager();  //用来管�
             }
         });
 ```
+
 3. 获取一个SimpleCursorAdapter对象,在onCreate的时候
 ```
    //SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER:表示的是给当前的这个适配器设置一个观察者这个观察者允许那个数据的改变
@@ -88,10 +90,12 @@ class MyAsyncTaskLoader extends AsyncTaskLoader{
     }
 }
 ```
+
 ### Loader中的使用的注意事项
 1. 在onLoadFinished方法中，我们需要使用当前适配器对象的swapCursor来设置这个返回的数据，这个适配器只能是SimpleCursorAdapter
 2. 在内容需要重置的时候，需要使用adapter.swapCursor(null)来复位数据。
 3. 如果我们需要重新启动Loader的时候，我们需要调用getLoaderManager().restartLoader(2,mBundle,new MyLoaderCallBack());来重启那个Loader.
+
 ### SeachView的使用
 1. 首先需要声明这个控件
 2. 找到控件并且给当前的控件设置内容改变的监听。
@@ -103,6 +107,7 @@ class MyAsyncTaskLoader extends AsyncTaskLoader{
   onQueryTextSubmit(String searchText)   :这个方法表示的意思是当咋们按下了那个搜索按钮或者按下了那个enter键的时候调用
   onQueryTextChange(String newText)      :只要那个EditText里面的内容发生了改变那么咋们的这个方法都会被调用(数据增加/数据减少)
 ```
+
 ### 用EditText也可实现搜索功能：
 1. 声明控件EditText
 2. 给EditText添加文本改变的事件监听
