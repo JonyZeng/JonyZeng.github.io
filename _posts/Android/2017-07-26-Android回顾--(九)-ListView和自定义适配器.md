@@ -41,13 +41,13 @@ android:descendantFocusabiliy="blocksDescendants"
 1. 编写一个类继承于BaseAdapter  
 ![自定义适配器的构建.png](https://upload-images.jianshu.io/upload_images/7156039-3927d700a1055312.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 2. 重写里面的方法  
-    - getCount():返回item的数量  
+    - getCount():返回item的数量
 ![getCount.png](https://upload-images.jianshu.io/upload_images/7156039-85faba681bcb58b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-  - getItem(): 返回数据源中的item对象
+    - getItem(): 返回数据源中的item对象
 ![getItem.png](https://upload-images.jianshu.io/upload_images/7156039-17dda17ee6b09a14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-  - getItemId(): 返回每个条目的位置
+    - getItemId(): 返回每个条目的位置
 ![getItemId.png](https://upload-images.jianshu.io/upload_images/7156039-38e5235217b0d0c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-  - getView(): 返回每个条目的view
+    - getView(): 返回每个条目的view
 ![getView.png](https://upload-images.jianshu.io/upload_images/7156039-586c8e3c47897b20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
