@@ -16,6 +16,7 @@ textView.setGravity(Gravity.CENTER);
 mListView.setEmptyView(textView);
 mListView.setAdapter(adapter);  //给ListView添加顶部或者底部信息一定是在 setAdapter之前
 ```
+
 ### ListView的优化
 1. 复用convertView
 ```
@@ -59,11 +60,13 @@ public View getView(int position, View convertView, ViewGroup parent) {
 		TextView time;
 	}
 ```
+
 ### ListView的上拉加载：
 1. 通过setOnScrollListener给ListView设置滚动事件
 2. 自定义一个类实现OnScrollListener
 ![自定义OnScrollListener.png](https://upload-images.jianshu.io/upload_images/7156039-a1c638ee04fa8112.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![头部和底部.png](https://upload-images.jianshu.io/upload_images/7156039-e0e1ca5d25e912e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ### ListView的多布局复用：
 1. 初始化数据源
 2. 编写适配器
@@ -72,8 +75,9 @@ public View getView(int position, View convertView, ViewGroup parent) {
       a. getViewTypeCount：获取ListView中布局的种类
       b. getItemViewType：获取每个布局的类型
 3. getView中应该分情况给Item设置内容
+
 ### GridView网格视图
-解析数据和适配器与ListView相同
+解析数据和适配器与ListView相同  
 GridView布局中特有的属性：
 ```
  android:numColumns="3"	//列数
