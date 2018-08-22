@@ -6,9 +6,9 @@
 2. 通过返回的SqliteDataBase对象进行对数据库的CRUD  
 3. 每一次用完之后，都必须关闭数据库。  
 具体的使用方式，参照我封装的一个数据库帮助类  
+
 ```
 package com.example.jonyz.demoe;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
