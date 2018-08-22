@@ -58,7 +58,8 @@
 ```
  mViewPager.setCurrentItem(1);
  mRadiBtnInfor.setChecked(true);
-```
+```  
+
 5. 设置RadioGroup的点击事件
 ```
     /**
