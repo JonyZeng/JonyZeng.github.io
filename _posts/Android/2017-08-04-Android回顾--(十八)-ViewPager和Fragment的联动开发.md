@@ -61,7 +61,8 @@ public class MyPagerAdapter extends PagerAdapter {
 
 ```
 ViewPager实现图片广告的自动和手动切换
-1. 初始化数据
+1. 初始化数据  
+
 ```
 public void initData(){
         for (int i = 0; i < titles.length; i++) {
@@ -80,8 +81,10 @@ public void initData(){
         mTextView.setText(titles[0]);
         points.get(0).setBackgroundResource(R.drawable.dot_enable);
     }
-```
-2. 设置适配器,一般这种简单的自定义适配器，使用内部类完成
+```  
+
+2. 设置适配器,一般这种简单的自定义适配器，使用内部类完成  
+
 ```
 private void setAdapter() {
         MyPagerAdapter myPagerAdapter = new MyPagerAdapter(listImg);
@@ -124,8 +127,10 @@ private void setAdapter() {
             container.removeView(views.get(position % views.size()));
         }
     }
-```
-3. 设置页面改变的监听事件
+```  
+
+3. 设置页面改变的监听事件  
+
 ```
  mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -147,8 +152,10 @@ private void setAdapter() {
 
             }
         });
-```
-4. 设置自动切换
+```  
+
+4. 设置自动切换  
+
 ```
  public void enableAutoFling() {
         new Thread(new Runnable() {
@@ -179,9 +186,11 @@ Handler mHandler = new Handler(){
         }
     }
 };
-```
+```  
+
 ### ViewPager+Fragment的联动使用
-1. 初始化数据
+1. 初始化数据  
+
 ```
  public void  initData(){
         for (int i = 0; i < 4; i++) {
@@ -192,13 +201,17 @@ Handler mHandler = new Handler(){
             fragments.add(mContentFragment);
         }
     }
-```
-在Fragment中的onActivityCreated方法中接收传递过来的数据
+```  
+
+在Fragment中的onActivityCreated方法中接收传递过来的数据  
+
 ```
 String result = getArguments().getString("content");
 mTextView.setText(result);
-```
-2. 设置适配器
+```  
+
+2. 设置适配器  
+
 ```
  private void setAdapter() {
         MyFragmentPagerAdapter myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
@@ -224,5 +237,6 @@ mTextView.setText(result);
             return fragments.size();
         }
     }
-```
+```  
+
 好了，ViewPage和Fragment的简单联动就回顾到这里了，下一篇我会写一个实际的demo来讲解稍复杂一点的情况。喜欢的朋友可以先点个赞哦。收藏一下。
