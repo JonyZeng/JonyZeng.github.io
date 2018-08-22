@@ -9,7 +9,8 @@
 #### 静态的使用方式
 像控件一样，在XML文件里面声明控件 然后控件就显示出来了
 - 第一步：编写一个类继承于Fragment
-- 第二步：在xml文件中，编写Fragment的布局
+- 第二步：在xml文件中，编写Fragment的布局  
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
