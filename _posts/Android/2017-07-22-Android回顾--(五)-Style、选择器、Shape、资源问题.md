@@ -31,7 +31,7 @@
 ### 选择器
 #### 1、选择器是什么？是干嘛用的？
 &emsp;&emsp;根据用户的不用的行为可以让View显示出不同状态的配置文件。所有的选择器文件都是放在src/drawable目录下面的
-####2、选择器的属性状态
+#### 2、选择器的属性状态
 ```
      <item android:state_checkable=""></item>   是否可以选择 
      <item android:state_checked=""></item>     是否被选中
@@ -95,12 +95,12 @@ android:sharp=["rectangle"|"oval"|"line"|"ring"]     //总共有四种形状，�
 ```
 ### Android中资源的问题
 1、字符串资源：   string.xml文件中的     
-注意:就是这个资源文件是万能的可以放颜色、字符串、数组、样式等都能放到这个文件里面
-2、媒体资源： raw和assets文件中都可以 .mp3 .mp4 .avi
-&emsp;&emsp; raw文件里面放置的媒体资源在apk打包的时候不会进行压缩处理。Assets目录放置的媒体资源在apk打包的时候会进行压缩处理。
-注意：一般情况下除了软件本身的复制音频外其余的视屏，都不会放到这两个目录下面来。因为这些资源即使压缩了也还是会非常占用资源的。
-3、额外的数据库： 一般挡在Assets目录里面
-4、颜色资源： 放置在是string.xml或者colors.xml文件中
-5、尺寸资源： 放置到values目录下的dimens.xml 或者string.xml
-6、风格和主题资源： style.xml文件或者string.xml文件中
-7、数组资源： 可以定义到arrays.xml或者string.xml文件中 一般情况下定义在string.xml文件中
+注意:就是这个资源文件是万能的可以放颜色、字符串、数组、样式等都能放到这个文件里面  
+2、媒体资源： raw和assets文件中都可以 .mp3 .mp4 .avi  
+&emsp;&emsp; raw文件里面放置的媒体资源在apk打包的时候不会进行压缩处理。Assets目录放置的媒体资源在apk打包的时候会进行压缩处理。  
+注意：一般情况下除了软件本身的复制音频外其余的视屏，都不会放到这两个目录下面来。因为这些资源即使压缩了也还是会非常占用资源的。  
+3、额外的数据库： 一般挡在Assets目录里面  
+4、颜色资源： 放置在是string.xml或者colors.xml文件中  
+5、尺寸资源： 放置到values目录下的dimens.xml 或者string.xml  
+6、风格和主题资源： style.xml文件或者string.xml文件中  
+7、数组资源： 可以定义到arrays.xml或者string.xml文件中 一般情况下定义在string.xml文件中  
