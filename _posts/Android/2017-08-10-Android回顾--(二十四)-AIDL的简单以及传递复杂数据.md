@@ -79,6 +79,7 @@ UserInfo.Stub是自动生成的，不需要关注。只需要继承之后，实�
         mIntent.setPackage("com.ting.android.aidldemo");    //这里设置服务器的包名，这样避免要求显示调用
         bindService(mIntent, new MyServletConn(), BIND_AUTO_CREATE);
 ```
+
 ### 传递复杂数据的AIDL服务
 &emsp;&emsp;AIDL服务只支持有限的数据类型，因此，如果用AIDL服务传递一些复杂的数据就需要做进一步处理，AIDL服务支持的数据类型如下：
 - Java的简单类型(int、char、boolean)，不需要导入(import)
@@ -87,6 +88,7 @@ UserInfo.Stub是自动生成的，不需要关注。只需要继承之后，实�
 - AIDL自动生成的接口。需要导入(import)
 - 实现android.os.Parcelable接口的类，需要导入(import)
 对于传递需要导入的复杂数据类型，具体的操作步骤如下
+
 ##### 服务端实现
 1. 创建一个IMyAidlInterface.aidl文件
 ```
@@ -213,6 +215,7 @@ interface IMyAidlInterface {
             </intent-filter>
         </service>
 ```
+
 ##### 客户端实现
 1. 将服务端的aidl文件包直接拷贝到客户端同样的目录下面。
 ![服务端aidl.png](https://upload-images.jianshu.io/upload_images/7156039-8b847ff3ddf20511.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -238,6 +241,7 @@ interface IMyAidlInterface {
         mIntent2.setPackage("com.ting.android.aidldemo");    //这里设置服务器的包名，这样避免要求显示调用
         bindService(mIntent2, new MyServiceConnection(), BIND_AUTO_CREATE);
 ```
+
 ###注意：
 在开发过程中，对于复杂类型需要导入，容易出现找不到导入的包。需要在gradle.build中添加如下代码。
 ```
