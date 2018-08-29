@@ -95,6 +95,7 @@ public class MyServerService extends Service {
     });
 }
 ```
+
 ##### 客户端
 1. 绑定Service
 2. 建立消息的接收平台
