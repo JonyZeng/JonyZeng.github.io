@@ -52,6 +52,7 @@ public class MyService extends Service {
 stopService(intent)
 ```
 Service的优先级：Service的优先级比不可见的Activity的优先级高，比可见的Activity优先级底。
+
 ##### 二、BindService
 &emsp;&emsp;绑定模式下的Service会依赖于组件，非绑定模式下的Service不依赖于组件。
 1. 编写一个类继承于Service
