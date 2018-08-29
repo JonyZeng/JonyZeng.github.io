@@ -55,7 +55,7 @@ intentFilter.addAction("com.fox.demo.broadcast");  //一个接收者可以接收
 intentFilter.addAction("com.fox.demo");
  registerReceiver(myBroadcast,intentFilter);//注册广播
 ```
-3. activity中使用Intent来发送广播，接收者中使用intent.getStringExtra获取发送的数据
+3. activity中使用Intent来发送广播，接收者中使用intent.getStringExtra获取发送的数据  
 ```
 Intent mIntent = new Intent();
 mIntent.setActiojn("com.fox.demo);
