@@ -10,6 +10,7 @@ BitmapFactory.Options opts = new BitmapFactory.Options();
 opts.inSampleSize = 4;
 Bitmap bitmap = BitmapFactory.decodeFile(imageFile, opts);
 ```
+
 ##### (二)、获取inSampleSize
 设置恰当的inSampleSize是解决该问题的关键之一。查看Android源码，我们得知，为了得到恰当的inSampleSize，Android提供了一种动态计算的方法。
 ```
@@ -42,6 +43,7 @@ inPreferredConfig为Bitmap.Config类型，Bitmap.Config类是个枚举类型，�
 - Bitmap.Config ARGB_4444
 - Bitmap.Config ARGB_8888
 - Bitmap.Config RGB_565
+
 ##### (三）、图片格式占用内存的计算方法：以一张100*100px的图片占用内存为例
 - ALPHA_8：图片长度*图片宽度 100*100=10000字节
 - ARGB_4444：图片长度*图片宽度*2 100*100*2=20000字节
