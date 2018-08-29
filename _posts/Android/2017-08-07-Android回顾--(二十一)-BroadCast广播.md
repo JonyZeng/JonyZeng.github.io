@@ -16,7 +16,7 @@
 2：new一个过滤器IntentFilter
 3：在过滤器中传入需要监听的广播类型intentFilter.addAction
 4：注册广播接收者registerReceiver将广播对象和过滤器传过去
-5：重写onDestroy方法解除绑定：unRegisterReceiver
+5：重写onDestroy方法解除绑定：unRegisterReceiver  
 ```
                 MyScreenOpenOrCloseBroadcas myScreenOpenOrCloseBroadcas=new MyScreenOpenOrCloseBroadcas();
                 IntentFilter mIntentFilter=new IntentFilter();
@@ -24,7 +24,9 @@
                 mIntentFilter.addAction(Intent.ACTION_SCREEN_OFF);
                 registerReceiver(myScreenOpenOrCloseBroadcas,mIntentFilter);
 ```
+
 ***广播的注册与取消注册必须是成对出现的，不然业务中会报错。***
+
 ### 自定义广播：
 1. 首先需要写一个广播接受者
 ```
@@ -61,6 +63,7 @@ sendBroadcast(mIntent);
 ```
 4. 关闭Activity的时候必须解绑广播接收者
 ``` unregistReceiver(myBroadcast);```
+
 ***注意：一个广播可以有多个Action，一个Action可以有多个广播。***
 #### 广播的分类：有序广播和无序广播
 无序广播：广播传输的时候是异步的，可以同时向多个接收器发送数据。
