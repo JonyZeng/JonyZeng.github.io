@@ -65,7 +65,8 @@ Message：需要传递的消息
 Messager进行通信的时候实际上也要依赖于Service
 ##### Service端
 1. 建立一个接收信息的平台
-2. 在onBind里面返回Messenger对象的getBinder()方法
+2. 在onBind里面返回Messenger对象的getBinder()方法  
+
 ```
 public class MyServerService extends Service {
     @Override
@@ -99,7 +100,7 @@ public class MyServerService extends Service {
 ##### 客户端
 1. 绑定Service
 2. 建立消息的接收平台
-3. 向服务端发送消息
+3. 向服务端发送消息  
 ```
 public class MainActivity extends AppCompatActivity {
     Messenger mMessenger;
