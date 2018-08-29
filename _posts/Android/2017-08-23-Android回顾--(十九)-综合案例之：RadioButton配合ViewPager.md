@@ -64,11 +64,11 @@
 ```  
 
 5. 设置RadioGroup的点击事件  
-```  
-    /**
-     * RadioGroup的点击事件，显示的Fragment随着button改变
-     */
-    private class OnCheckedListener implements RadioGroup.OnCheckedChangeListener {
+```
+/**
+* RadioGroup的点击事件，显示的Fragment随着button改变
+*/
+private class OnCheckedListener implements RadioGroup.OnCheckedChangeListener {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             switch (group.getCheckedRadioButtonId()){
