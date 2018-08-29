@@ -66,7 +66,6 @@ public void sendToTarget()             将消息发送到目标handler对象。�
 public void setData(Bundle data)     将Bundle对象设置到message对象中Bundle属性中。
 public Bundle getData()      从消息对象中获取Bundle属性的数据。
 ```
-
 ### 消息传递机制中各方法之间的执行顺序
 ![消息传递顺序.png](https://upload-images.jianshu.io/upload_images/7156039-3ebc703fbb41dbfc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ### 结语
